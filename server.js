@@ -5,7 +5,7 @@ const routes = require('./routes')
 
 
 //.env folder for environment variables
-require('dotenv').config({ path: './config/.env' })
+require('dotenv').config()
 
 connectDB()
 

@@ -1,13 +1,13 @@
 const User = require('..models/user')
 
 module.exports = {
-    getUsers(req,res){
+    getUser(req,res){
         User.find()
         .then((users)=> res.json(users))
         .catch((err)=> res.status(400).json(err))
     },
 
-    getUserById(req,res){
+    getUserListings(req,res){
         User.findOne({ _id: req.params.userId })
         .then((user)=> {
             if(!user){
@@ -35,7 +35,7 @@ module.exports = {
             {runValidators: true, new: true}
         )
         .then((user)=>
-        !user ? res.status(404).json({message: 'No user found'}) : res.jason({
+        !user ? res.status(404).json({message: 'No user found'}) : res.json({
             updatedUser: user,
             message: 'User updated'
         })
