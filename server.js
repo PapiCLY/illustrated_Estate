@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const connectDB = require('./config/database')
-const userRoutes = require('./routes/user')
+const routes = require('./routes')
 
 
 //.env folder for environment variables
@@ -16,7 +16,7 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use('/user', userRoutes)
+app.use(routes)
 
 //Server Running
 app.listen(process.env.PORT, () => {
