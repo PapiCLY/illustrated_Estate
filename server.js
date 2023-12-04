@@ -18,8 +18,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //routes
-app.use('/user', userRoutes)
-app.use('/listing', listingRoutes)
+app.use('/api/user', userRoutes)
+app.use('/api/listing', listingRoutes)
 
 //Server Running
 app.listen(process.env.PORT, () => {

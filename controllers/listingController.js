@@ -1,7 +1,7 @@
 const Listing = require('../models/listingModel'); // Import Listing model
 
 const listingController = {
-  // GET /get - Get all listings
+  //Get all listings - http://localhost:2641/api/listing/get
   getListings: async (req, res) => {
     try {
       const listings = await Listing.find();
@@ -11,7 +11,7 @@ const listingController = {
     }
   },
 
-  // POST /create - Create a new listing
+  //Create a new listing - http://localhost:2641/api/listing/create
   createListing: async (req, res) => {
     try {
       const {
@@ -51,7 +51,7 @@ const listingController = {
     }
   },
 
-  // DELETE /delete - Delete a listing
+  //Delete a listing - http://localhost:2641/api/listing/delete/:id
   deleteListing: async (req, res) => {
     try {
       const deletedListing = await Listing.findByIdAndDelete(req.params.id);
