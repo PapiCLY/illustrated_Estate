@@ -1,7 +1,7 @@
 const User = require('../models/user'); // Import User model
 
 const userController = {
-  // GET /users/:id - Get user by ID
+  //Get user by ID -- http://localhost:2641/users/:id
   getUser: async (req, res) => {
     try {
       const user = await User.findById(req.params.id);
@@ -14,7 +14,7 @@ const userController = {
     }
   },
 
-  // GET /users/listings/:id - Get listings for a user by ID
+  //Get listings for a user by ID -- http://localhost:2641/users/listings/:id
   getUserListings: async (req, res) => {
     try {
       const user = await User.findById(req.params.id).populate('listings');
@@ -27,7 +27,7 @@ const userController = {
     }
   },
 
-  // PUT /users/update/:id - Update user by ID
+  //Update user by ID -- http://localhost:2641/users/update/:id
   updateUser: async (req, res) => {
     try {
       const updatedUser = await User.findByIdAndUpdate(
@@ -53,7 +53,7 @@ const userController = {
     }
   },
 
-  // POST /users/create/:id - Create a new user
+  //Create a new user -- http://localhost:2641/user/create
   createUser: async (req, res) => {
     try {
       const newUser = new User({
@@ -70,7 +70,7 @@ const userController = {
     }
   },
 
-  // DELETE /users/delete/:id - Delete user by ID
+  //Delete user by ID -- http://localhost:2641/users/delete/:id
   deleteUser: async (req, res) => {
     try {
       const deletedUser = await User.findByIdAndDelete(req.params.id);
