@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const connectDB = require('./config/database')
-const routes = require('./routes')
+const routes = require('./routes/api/user')
 
 
 //.env folder for environment variables
@@ -16,6 +16,7 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+//routes
 app.use(routes)
 
 //Server Running
