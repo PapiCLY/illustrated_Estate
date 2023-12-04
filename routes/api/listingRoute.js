@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const listingController = require('../controllers/listingController')
+const listingController = require('../../controllers/listingController')
 
 router.get('/get', listingController.getListings);
 router.post('/create', listingController.createListing);
