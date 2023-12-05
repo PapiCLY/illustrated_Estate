@@ -11,6 +11,19 @@ const listingController = {
     }
   },
 
+  //Get one listing - http://localhost:2641/api/listing/get/:id
+  getOneListing: async (req, res) => {
+    try {
+      const listing = await Listing.findById(req.params.id);
+      if (!listing) {
+        return res.status(404).json({ error: error.message });
+      }
+      res.status(200).json(listing);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  },
+
   //Create a new listing - http://localhost:2641/api/listing/create
   createListing: async (req, res) => {
     try {
