@@ -16,7 +16,7 @@ const listingController = {
     try {
       const listing = await Listing.findById(req.params.id);
       if (!listing) {
-        return res.status(404).json({ error: error.message });
+        return res.status(404).json({ error: 'Listing is not in DB' });
       }
       res.status(200).json(listing);
     } catch (error) {
