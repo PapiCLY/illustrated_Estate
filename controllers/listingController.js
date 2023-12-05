@@ -7,7 +7,7 @@ const listingController = {
       const listings = await Listing.find();
       res.status(200).json(listings);
     } catch (error) {
-      res.status(500).json({ error: 'Internal Server Error' });
+      res.status(500).json({ error: error.message });
     }
   },
 
@@ -47,7 +47,7 @@ const listingController = {
       const savedListing = await newListing.save();
       res.status(201).json(savedListing);
     } catch (error) {
-      res.status(500).json({ error: 'Internal Server Error' });
+      res.status(500).json({ error: error.message  });
     }
   },
 
@@ -57,12 +57,12 @@ const listingController = {
       const deletedListing = await Listing.findByIdAndDelete(req.params.id);
 
       if (!deletedListing) {
-        return res.status(404).json({ error: 'Listing not found' });
+        return res.status(404).json({ error: error.message });
       }
 
       res.status(200).json(deletedListing);
     } catch (error) {
-      res.status(500).json({ error: 'Internal Server Error' });
+      res.status(500).json({ error: error.message  });
     }
   },
 };
