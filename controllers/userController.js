@@ -10,7 +10,7 @@ const userController = {
       }
       res.status(200).json(user);
     } catch (error) {
-      res.status(500).json({ error: 'Internal Server Error' });
+      res.status(500).json({ error:error.message });
     }
   },
 
@@ -34,7 +34,7 @@ const userController = {
         req.params.id,
         {
           $set: {
-            username: req.body.userName,
+            username: req.body.username,
             email: req.body.email,
             password: req.body.password,
             avatar: req.body.avatar
@@ -48,8 +48,9 @@ const userController = {
       }
 
       res.status(200).json(updatedUser);
+      //res.send('user updated')
     } catch (error) {
-      res.status(500).json({ error: 'Internal Server Error' });
+      res.status(500).json({ error: error.message});
     }
   },
 
@@ -66,7 +67,7 @@ const userController = {
       const savedUser = await newUser.save();
       res.status(201).json(savedUser);
     } catch (error) {
-      res.status(500).json({ error: 'Internal Server Error' });
+      res.status(500).json({ error: error.message });
     }
   },
 
