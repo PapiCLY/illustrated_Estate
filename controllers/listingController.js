@@ -78,6 +78,40 @@ const listingController = {
       res.status(500).json({ error: error.message  });
     }
   },
+
+  //Update a listing - http://localhost:2641/api/listing/update/:id
+  updateOneListing: async (req, res) => {
+    try {
+      const updatedListing = await Listing.findByIdAndUpdate(
+        req.params.id,
+        {
+          $set: {
+            name: req.body.name,
+            description: req.body.description,
+            address: req.body.address,
+            regularPrice: req.body.regularPrice,
+            bathrooms: req.body.bathrooms,
+            bedrooms: req.body.bedrooms,
+            furnished: req.body.furnished,
+            parking: req.body.parking,
+            type: req.body.type,
+            offer: req.body.offer,
+            imageUrls: req.body.imageUrls,
+            userRef: req.body.userRef,
+          },
+        },
+        { new: true }
+      );
+
+      if (!updatedListing) {
+        return res.status(404).json({ error: error.message });
+      }
+
+      res.status(200).json(updatedListing);
+    } catch (error) {
+      res.status(500).json({ error: error.message  });
+    }
+  }
 };
 
 module.exports = listingController;

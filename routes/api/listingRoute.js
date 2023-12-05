@@ -6,6 +6,7 @@ router.get('/get/:id', listingController.getOneListing);
 router.get('/get', listingController.getListings);
 router.post('/create', listingController.createListing);
 router.delete('/delete', listingController.deleteListing);
+router.put('/update/:id', listingController.updateOneListing);
 
 
 module.exports = router;
