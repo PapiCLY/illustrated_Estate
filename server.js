@@ -32,7 +32,7 @@ app.use(
       saveUninitialized: false,
       store: new MongoStore({ mongooseConnection: mongoose.connection }),
     })
-  )
+  );
 
 //passport middleware
 app.use(passport.initialize())
