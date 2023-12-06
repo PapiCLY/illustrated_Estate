@@ -23,6 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 console.log(`Lets see the secret ${process.env.SECRET}`)
+
 //setup sessions - store in MongoDB
 app.use(
     session({
