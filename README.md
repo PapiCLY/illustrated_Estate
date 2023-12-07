@@ -1,5 +1,5 @@
 ## Getting Started
-Illustrated Extate
+Illustrated Estate
 
 ## Getting Started
 
