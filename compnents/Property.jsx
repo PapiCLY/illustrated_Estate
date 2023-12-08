@@ -5,20 +5,21 @@ import { Avatar } from '@chakra-ui/react';
 import { FaBed, FaBath, } from 'react-icons/fa';
 import { BsGridFill } from 'react-icons/bs';
 import { GoVerified } from 'react-icons/go';
+import DefaultImage from '../assets/DefaultImage.png'
 import millify from 'millify';
 
-// (import DefaultImage from '../assets/images/house image) home/house image for main page like "advertisement"
 
-const Property = ({ property: { coverPhoto, price, rentFrequency, rooms, title, baths, area, agency, isVerified, externalID }}) => (
-  <Link href={`/property/${externalID}`} passHref>
+const Property = ({ coverPhoto, property: { price, rentFrequency, rooms, title, baths, area, agency, isVerified, externalID }}) => (
+  <Link href={`/property/${externalID}`} passHref legacyBehavior>
     <Flex flexWrap='wrap' w='420px' p='5' paddingTop='0px' justifyContent='flex-start' cursor='pointer' >
       <Box>
         <Image src={coverPhoto ? coverPhoto.url : DefaultImage} width={400} height={260} />
+        
       </Box>
       <Box w='full'>
         <Flex paddingTop='2' alignItems='center' justifyContent='space-between'>
           <Flex alignItems='center'>
-            <Box paddingRight='3' color='green.400'>{isVerified && <GoVerifies />}</Box>
+            <Box paddingRight='3' color='green.400'>{isVerified && <GoVerified />}</Box>
             <Text fontWeight='bold' fontSize='lg'>AED {price}{rentFrequency && `/${rentFrequency}`}</Text>
           </Flex>
           <Box>
