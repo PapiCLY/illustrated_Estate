@@ -5,7 +5,7 @@ import house1 from '../assets/house1.png'
 
 
 import Property from '../compnents/Property';
-import { baseUrl, fetchApi } from '../utils/fetchApi';
+import { baseUrl, fetchApi } from '../../back-end/utils/fetchApi';
 
 export const Banner = ({ purpose, title1, title2, desc1, desc2, buttonText, linkName, imageUrl }) => (
     <Flex flexWrap='wrap' justifyContent='center' alignItems='center' m='10'>

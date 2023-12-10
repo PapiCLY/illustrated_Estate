@@ -12,3 +12,5 @@ export const fetchApi = async (url) => {
    console.log(data) 
   return data;
 }
+
+export default fetchApi;

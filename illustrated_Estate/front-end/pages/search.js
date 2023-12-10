@@ -6,7 +6,7 @@ import { BsFilter } from 'react-icons/bs';
 
 import Property from '../compnents/Property';
 import SearchFilters from '../compnents/SearchFilters';
-import { baseUrl, fetchApi } from '../utils/fetchApi';
+import { baseUrl, fetchApi } from '../../back-end/utils/fetchApi';
 import noresult from '../assets/images/noresult.svg'
 
 const Search = ({ properties }) => {

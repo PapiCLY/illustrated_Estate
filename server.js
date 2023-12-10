@@ -4,9 +4,9 @@ const mongoose = require('mongoose')
 const passport = require('passport')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
-const connectDB = require('./config/database')
-const userRoutes = require('./routes/api/user')
-const listingRoutes = require('./routes/api/listingRoute')
+const connectDB = require('./illustrated_Estate/back-end/config/database')
+const userRoutes = require('./illustrated_Estate/back-end/routes/api/user')
+const listingRoutes = require('./illustrated_Estate/back-end/routes/api/listingRoute')
 
 
 //.env folder for environment variables
