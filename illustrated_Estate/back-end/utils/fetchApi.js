@@ -9,7 +9,7 @@ export const fetchApi = async (url) => {
       'x-rapidapi-key': process.env.RAPID_API_KEY ,
     },
   });
-   console.log(data) 
+    
   return data;
 }
 
