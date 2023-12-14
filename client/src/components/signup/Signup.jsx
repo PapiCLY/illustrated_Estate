@@ -3,11 +3,14 @@ import {useState} from 'react'
 import {AiOutlineFileImage} from 'react-icons/ai'
 import classes from './signup.module.css'
 import {useNavigate, Link} from 'react-router-dom'
+import {useSelector, useDispatch} from 'react-redux'
+import {request} from '../../utils/fetchAPI'
+import { register } from '../../redux/authSlice'
 
 const Signup = () => {
   const [state, setState] =useState({})
   const [photo, setPhoto] = useState("")
-  //const dispatch = useDispatch()
+  const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const handleState = (e) => {
@@ -32,10 +35,12 @@ const Signup = () => {
           return
         }
 
-        const headers = {'Content-Type': 'application/json'}
+        const headers = {
+          'Content-Type': 'application/json'
+        }
         const data = await request('/auth/register', "POST", headers, {...state, profileImg: filename})
         console.log(data)
-        //dispatchEvent(register(data))
+        dispatch(register(data))
         navigate('/')
       } catch (error) {
         console.log(error)
@@ -49,7 +54,7 @@ const Signup = () => {
       <div className={classes.wrapper}>
         <h2>Sign Up</h2>
         <form onSubmit={handleSubmit}>
-            <input type="text" name='username' placeholder='Username...' onChange={handleState}/>
+            <input type="text" name='username' placeholder='Username...' onChange={handleState} style={{color: '#fff'}}/>
             <input type="email" name='email' placeholder='Email...' onChange={handleState}/>
             <label htmlFor="photo">Upload photo <AiOutlineFileImage/></label>
             <input id="photo" type='file' style={{display: 'none'}} onChange={(e) => setPhoto(e.target.files[0])}/>

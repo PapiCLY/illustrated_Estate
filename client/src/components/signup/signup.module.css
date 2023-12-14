@@ -14,7 +14,7 @@
 }
 
 .wrapper{
-    height: 67.5vh;
+    height: 57.5vh;
     width: 27.5vw;
     border-radius: 20px;
     border: 1px solid rgb(73, 72, 72);
@@ -45,6 +45,11 @@ form > input{
     border-bottom: 1px solid #333;
     background-color: transparent;
     color: #fff;
+    font-size: 20px;
+}
+
+form>input::placeholder{
+    color: #c2c0c0;
 }
 
 form > label{

@@ -20,6 +20,8 @@ const Signin = () => {
         }
 
         const data = await request('/auth/login', "POST", options, {email, password})
+        dispatch(login(data))
+        navigate('/')
       } catch (error) {
         console.log(error)
       }
