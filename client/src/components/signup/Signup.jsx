@@ -10,15 +10,37 @@ const Signup = () => {
   //const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const handleState = () => {
+  const handleState = (e) => {
     setState(prev => {
       return{...prev, [e.target.name]: e.target.value}
     })
   }
   
   const handleSubmit = async(e) => {
+    //default behavior when submitting form is to refresh broswer. This will prevent that action
+    e.preventDefault()
+      try {
+        let filename = null
+        if(photo){
+            const formData = new FormData()
+            filename = crypto.randomUUID() + photo.name //allows us to create a random string for the image
+            formData.append('filename', filename)
+            formData.append('image', photo)
 
-  }
+            await request('/upload/image', "POST", {}, formData, true)
+        } else{
+          return
+        }
+
+        const headers = {'Content-Type': 'application/json'}
+        const data = await request('/auth/register', "POST", headers, {...state, profileImg: filename})
+        console.log(data)
+        //dispatchEvent(register(data))
+        navigate('/')
+      } catch (error) {
+        console.log(error)
+      }
+        }
 
 
   console.log(state)

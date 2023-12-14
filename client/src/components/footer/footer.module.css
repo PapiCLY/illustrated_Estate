@@ -30,3 +30,8 @@ footer{
     color: #555;
     font-size: 15px;
 }
+
+.git{
+    text-decoration: none;
+    color: blue;
+}

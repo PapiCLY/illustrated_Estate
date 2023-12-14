@@ -12,14 +12,14 @@ const Footer = () => {
         <div className={classes.col}>
           <h2>Contacts</h2>
           <span>Phone: 407 902 1082</span>
-          <span>Youtube: MyYouTube</span>
-          <span>Github: MyGitHub</span>
+          <span>Caleb's Github: <a className={classes.git} href="https://github.com/Caleb-A-B" target='_blank'>Caleb-A-B</a></span>
+          <span>Yehudah's Github: <a className={classes.git} href="https://github.com/PapiCLY" target='_blank'>PapiCLY</a></span>
         </div>
         <div className={classes.col}>
           <h2>Location</h2>
-          <span>Continent: Europe</span>
-          <span>Country: Bulgaria</span>
-          <span>Current Location: Bulgaria</span>
+          <span>Orlando, FL</span>
+          <span>Sanfrancisco, CA</span>
+          <span>USA</span>
         </div>
       </div>
     </footer>

@@ -43,6 +43,8 @@ form > input{
     outline: none;
     border: none;
     border-bottom: 1px solid #333;
+    background-color: transparent;
+    color: #fff;
 }
 
 form > label{
@@ -56,7 +58,7 @@ form > label{
 }
 
 form > label:hover{
-    color: #6b6464;
+    color: #fff;
 }
 
 form>button{
