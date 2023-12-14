@@ -3,6 +3,8 @@ import classes from './signin.module.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import {useState} from 'react'
+import {request} from '../../utils/fetchAPI'
+import {login} from '../../redux/authSlice'
 
 const Signin = () => {
   const [email, setEmail] = useState('')
@@ -12,7 +14,7 @@ const Signin = () => {
 
 
   const handleLogin = async(e) => {
-      e.preventDeault()
+      e.preventDefault()
 
       try {
         const options = {
@@ -20,6 +22,7 @@ const Signin = () => {
         }
 
         const data = await request('/auth/login', "POST", options, {email, password})
+        console.log(data)
         dispatch(login(data))
         navigate('/')
       } catch (error) {
@@ -31,10 +34,10 @@ const Signin = () => {
       <div className={classes.wrapper}>
         <h2>Sign In</h2>
         <form onSubmit={handleLogin}>
-          <input type="email" placeholder='Email...' />
-          <input type="password" placeholder='Password...' />
+          <input type="email" placeholder='Email...' onChange={(e)=> setEmail(e.target.value)}/>
+          <input type="password" placeholder='Password...' onChange={(e)=> setPassword(e.target.value)}/>
           <button type='submit'>Sign In</button>
-          <p>Don't have an account? <Link to='/Signup'></Link>Sign Up</p>
+          <p>Don't have an account? <Link to='/Signup'>Sign up</Link>Sign Up</p>
         </form>
       </div>
     </div>

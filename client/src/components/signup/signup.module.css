@@ -27,7 +27,7 @@
 .wrapper > h2{
     color: #dcdbe2;
     text-align: center;
-    margin: 2.5rem 0;
+    margin: 1rem 0;
     font-size: 36px;
 }
 
@@ -91,5 +91,17 @@ form > p{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-decoration: none;
+}
+
+a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    transition: 150ms all;
+}
+
+a:hover{
+    color: #000;
 }
 

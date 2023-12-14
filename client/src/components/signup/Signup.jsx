@@ -48,13 +48,13 @@ const Signup = () => {
         }
 
 
-  console.log(state)
+
   return (
     <div className={classes.container}>
       <div className={classes.wrapper}>
         <h2>Sign Up</h2>
         <form onSubmit={handleSubmit}>
-            <input type="text" name='username' placeholder='Username...' onChange={handleState} style={{color: '#fff'}}/>
+            <input type="text" name='username' placeholder='Username...' onChange={handleState}/>
             <input type="email" name='email' placeholder='Email...' onChange={handleState}/>
             <label htmlFor="photo">Upload photo <AiOutlineFileImage/></label>
             <input id="photo" type='file' style={{display: 'none'}} onChange={(e) => setPhoto(e.target.files[0])}/>
