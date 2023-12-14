@@ -39,7 +39,6 @@ const Signup = () => {
           'Content-Type': 'application/json'
         }
         const data = await request('/auth/register', "POST", headers, {...state, profileImg: filename})
-        console.log(data)
         dispatch(register(data))
         navigate('/')
       } catch (error) {
@@ -48,7 +47,7 @@ const Signup = () => {
         }
 
 
-  console.log(state)
+
   return (
     <div className={classes.container}>
       <div className={classes.wrapper}>
