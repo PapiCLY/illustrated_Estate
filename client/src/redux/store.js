@@ -1,9 +1,38 @@
-import {createSlice} from '@reduxjs/toolkit'
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import {
+    persistStore,
+    persistReducer,
+    FLUSH,
+    REHYDRATE,
+    PAUSE,
+    PERSIST,
+    PURGE,
+    REGISTER,
+} from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import authSlice from "./authSlice";
 
-const initialState = {
-    user: null,
-    token: null,
-}
 
-//redux has a centralized store, which is a single source of truth
-//this store is composed of slices, which are pieces of state
+const persistConfig = {
+    key: "root",
+    version: 1,
+    storage,
+};
+
+const reducers = combineReducers({
+    auth: authSlice 
+})
+
+const persistedReducer = persistReducer(persistConfig, reducers);
+
+export const store = configureStore({
+    reducer: persistedReducer,
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: {
+                ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+            },
+        }),
+});
+
+export let persistor = persistStore(store);

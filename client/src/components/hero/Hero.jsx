@@ -16,9 +16,9 @@ const Hero = () => {
   return (
     <div className={classes.container}>
       <div className={classes.wrapper}>
-        <h2>Let me find your dream place now</h2>
-        <h5>Search the best selection of luxury real estate</h5>
-        <div className={classes.options}>
+        <h2>Let us help you find your Toon Home!</h2>
+        <h5>Search the best selection of cartoon real estate</h5>
+        {/* <div className={classes.options}>
           <select onChange={(e)=> setType(e.target.value)}>
             <option disabled>Select type</option>
             <option value="beach">Beach</option>
@@ -43,7 +43,7 @@ const Hero = () => {
             <option value="5">Oceania</option>
           </select>
           <AiOutlineSearch className={classes.icon}/>
-        </div>
+        </div> */}
       </div>
     </div>
   )
