@@ -60,7 +60,7 @@ const Signup = () => {
             <input id="photo" type='file' style={{display: 'none'}} onChange={(e) => setPhoto(e.target.files[0])}/>
             <input type="password" name='password' placeholder='Password...' onChange={handleState}/>
             <button type="submit">Register</button>
-            <p>Already have an account?<Link to="/signin">Sign in</Link></p>
+            <p>Already have an account?<Link to="/Signin">Sign in</Link></p>
         </form>
       </div>
     </div>

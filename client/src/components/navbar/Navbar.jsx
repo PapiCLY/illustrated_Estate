@@ -12,10 +12,10 @@ const Navbar = () => {
           Illustrated Estates <BsHouseDoor />
         </Link>
         <ul className={classes.center}>
-          <li className={classes.listItem}>Home</li>
-          <li className={classes.listItem}>About</li>
-          <li className={classes.listItem}>Featured</li>
-          <li className={classes.listItem}>Contacts</li>
+        <li className={classes.listItem}><a href="#">Home</a></li>
+          <li className={classes.listItem}><a href="#About">About</a></li>
+          <li className={classes.listItem}><a href="#Featured">Featured</a></li>
+          <li className={classes.listItem}><a href="#Contacts">Contacts</a></li>
         </ul>
         <div className={classes.right}>
           <Link to='/signin' className={classes.signin}>Sign In</Link>

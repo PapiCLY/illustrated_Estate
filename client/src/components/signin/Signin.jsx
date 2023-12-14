@@ -34,7 +34,7 @@ const Signin = () => {
           <input type="email" placeholder='Email...' />
           <input type="password" placeholder='Password...' />
           <button type='submit'>Sign In</button>
-          <p>Don't have an account? <Link to='/Signup'></Link></p>
+          <p>Don't have an account? <Link to='/Signup'></Link>Sign Up</p>
         </form>
       </div>
     </div>
