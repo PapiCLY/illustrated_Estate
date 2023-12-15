@@ -21,7 +21,7 @@ const FeaturedProperties = () => {
     fetchFeatured()
   })
   return (
-    <div className={classes.container}>
+    <div id="Featured" className={classes.container}>
       <div className={classes.wrapper}>
         <div className={classes.titles}>
           <h5>Properties you may like</h5>
