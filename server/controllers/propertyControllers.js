@@ -39,18 +39,18 @@ propertyController.get('/find', async(req, res) => {
         res.status(500).json(error.message);
     }
 });
-
-//get count of types -> ex: {beach: 5, mountain: 10} - localhost:5000/property/find/types
+//"fixerUpper"|"classic"|"new"');
+//get count of types -> ex: {fixer-upper: 5, classic: 10} - localhost:5000/property/find/types
 propertyController.get('/find/types', async(req,res) => {
     try{
-        const beachType = await Property.countDocuments({type: 'beach'})
-        const mountainType = await Property.countDocuments({type: 'mountain'})
-        const villageType = await Property.countDocuments({type: 'village'})
+        const fixerUpperType = await Property.countDocuments({type: 'fixerUpper'})
+        const classicType = await Property.countDocuments({type: 'classic'})
+        const newType = await Property.countDocuments({type: 'new'})
 
         return res.status(200).json({
-            beach: beachType, 
-            mountain: mountainType, 
-            village: villageType
+            fixerUpper: fixerUpperType, 
+            classic: classicType, 
+            new: newType
         });
     } catch(err){
         return res.status(500).json(error.message);
@@ -77,36 +77,13 @@ propertyController.get('/find/:id', async (req, res) => {
 // create property - localhost:5000/property
 propertyController.post('/', verifyToken, async (req, res) => {
     try {
-        console.log('req.user:', req.user);
+        const newProperty = await Property.create({ ...req.body, currentOwner: req.user.id })
 
-        if (!req.user || !req.user.id) {
-            return res.status(403).json({ message: 'User not authorized!' });
-        }
-
-        console.log('req.body:', req.body);
-
-        // get currentOwner from req.body
-        const { currentOwner, ...propertyData } = req.body;
-        
-        console.log('currentOwner:', currentOwner);
-
-        if (!currentOwner) {
-            return res.status(400).json({ message: 'currentOwner is required in the request body!' });
-        }
-
-        if (currentOwner.toString() !== req.user.id) {
-            return res.status(403).json({ message: 'Invalid currentOwner in the request body!' });
-        }
-
-        const newProperty = await Property.create({ ...propertyData, currentOwner: req.user.id });
-
-        return res.status(201).json(newProperty);
+        return res.status(201).json(newProperty)
     } catch (error) {
-        console.error('Error:', error);
-        return res.status(500).json({ message: error.message });
+        return res.status(500).json(error)
     }
-});
-
+})
 
 
 

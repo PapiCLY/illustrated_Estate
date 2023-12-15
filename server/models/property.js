@@ -1,5 +1,10 @@
 const mongoose = require('mongoose');
 
+
+
+//"fixerUpper"|"classic"|"new"');
+
+
 const PropertySchema = new mongoose.Schema({
     currentOwner: {
         //657810ea02ea5aaa886e14bf - ObjectId("657810ea02ea5aaa886e14bf") of user
@@ -14,7 +19,7 @@ const PropertySchema = new mongoose.Schema({
     },
     type: {
         type: String,
-        enum: ["beach", "mountain", "village"],
+        enum: ["fixerUpper", "classic", "new"],
         required: true,
     },
     desc: {
@@ -41,7 +46,7 @@ const PropertySchema = new mongoose.Schema({
     },
     featured: {
         type: Boolean,
-        default: false,
+        default: true,
     },
 }, {timestamps: true});
 

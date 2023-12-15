@@ -6,16 +6,16 @@ const jwt = require('jsonwebtoken');
 //register - http://localhost:5000/auth/register
 authControllers.post('/register', async (req, res) => {
   try {
-    const isExisting = await User.findOneAndDelete({email: req.body.email})
+    const isExisting = await User.findOne({email: req.body.email})
     if(isExisting){
         throw new Error("Already registered!")
     }
-    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+    const hashedPassword = await bcrypt.hash(req.body.password, 10); //salt 10
 
     const newUser = await User.create({...req.body, password: hashedPassword});
 
     const {password, ...others} = newUser._doc;
-    const token = jwt.sign({id: newUser._id}, process.env.JWT_SECRET, {expiresIn: "1d"});
+    const token = jwt.sign({id: newUser._id}, process.env.JWT_SECRET, {expiresIn: "10d"});
 
     return res.status(201).json({others, token: token});
   } catch (error) {
@@ -38,7 +38,7 @@ authControllers.post('/login', async (req, res) => {
             throw new Error("Wrong password!")
         }
 
-        const token = jwt.sign({id: user._id}, process.env.JWT_SECRET, {expiresIn: "1d"});
+        const token = jwt.sign({id: user._id}, process.env.JWT_SECRET, {expiresIn: "10d"});
         const {password, ...others} = user._doc;
 
         return res.status(200).json({others, token: token})
