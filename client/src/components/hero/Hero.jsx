@@ -5,7 +5,7 @@ import classes from './Hero.module.css'
 
 
 const Hero = () => {
-  const [type, setType] = useState('beach')
+  //const [type, setType] = useState('beach')
   const [continent, setContinent] = useState('0')
   const [priceRange, setPriceRange] = useState('0')
 
